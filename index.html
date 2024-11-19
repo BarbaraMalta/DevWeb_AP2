@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jogadores</title>
+    <title>Login</title>
+    <link rel="stylesheet" href="index.css">
     <script src="index.js" defer></script>
-    <link rel="stylesheet" href="estilo.css">
     <script src="sha256.js" defer></script>
+    <link rel="icon" type="image/x-icon" href="botafogo.png">
 </head>
 <body>
-    <input id="senha" type="text">
-    <button id="botao" onclick="login()">Entrar</button>
+    <div id="conjunto" >
+        <div id="texto">
+            <p>Elenco do Botafogo</p>
+        </div>
+        <div id="senha">
+            <form action="javascript:void(0);">
+                <input id="senhaa" type="text" placeholder="Senha">
+            </form>
+            <button id="botao" onclick="login()">Entrar</button>
+            <div id="containerAviso">
+                Senha: fogao
+            </div>
+        </div>
+    </div>
 </body>
 </html>
