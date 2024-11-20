@@ -22,7 +22,15 @@ const montaBotao = () => {
     const newContent3 = document.createTextNode("Masculino");
     botao3.appendChild(newContent3);
     botao3.id = 'botao3'
-    };
+
+    const botao4 = document.createElement("button")
+    const newContent4 = document.createTextNode("Limpar Pesquisa")
+    botao4.appendChild(newContent4)
+    botao4.id = 'botao4'
+    botao4.onclick = function() {
+        limpaPesquisa()
+    }
+};
 /*for (let i = 0; i < dados.length; i++){
     let atleta = dados[i]; */
 
@@ -69,7 +77,7 @@ function exibeelenco(endpoint) {
     )
     };
 
-function filtrarJogadores(jogadores) {
+function limpaPesquisa(jogadores) {
     return jogadores.filter(jogador => jogador.nome.toLowerCase());
 }
 
@@ -132,7 +140,8 @@ window.onload = function() {
             exibeelenco(endpoint, 'elenco completo');
         }
     }
-}
+};
+
 filtroMenu.addEventListener('change', function() {
     const valorSelecionado = filtroMenu.value;
     sessionStorage.setItem('filtroSelecionado', valorSelecionado);
