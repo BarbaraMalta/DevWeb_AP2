@@ -8,15 +8,25 @@
     <script src="index.js" defer></script>
     <script src="sha256.js" defer></script>
     <link rel="icon" type="image/x-icon" href="botafogo.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+
 </head>
 <body>
+    <img src="botafogo.png">
     <div id="conjunto" >
         <div id="texto">
             <p>Elenco do Botafogo</p>
         </div>
         <div id="senha">
             <form action="javascript:void(0);">
-                <input id="senhaa" type="text" placeholder="Senha">
+                <div class="versenha">
+                    <input id="senhaa" type="password" placeholder="Senha">
+
+                </div>
+                
             </form>
             <button id="botao" onclick="login()">Entrar</button>
             <div id="containerAviso">
@@ -24,5 +34,6 @@
             </div>
         </div>
     </div>
+
 </body>
 </html>

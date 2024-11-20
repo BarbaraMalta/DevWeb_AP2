@@ -5,30 +5,67 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background-color: #ffffff;
-    color: #ffffff;
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    display: flex;
-    flex-direction: column;
-
+}
+img {
+    margin-top: 0;
+    height: 300px;
+    width: 300px;
 }
 #conjunto {
-    background-color: #474646;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    padding: 50px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 50px;
-    border-radius: 8px;
 }
 #texto {
-    font-size: 50px;
-    padding-bottom: 50px;
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #000000;
 }
+/* Container para o campo de senha e o botão do olho */
+.versenha {
+    position: relative;  /* Corrigido de 'relativeSS' para 'relative' */
+    width: 100%;
+}
+
+/* Estilos para o campo de senha */
+#senhaa {
+    width: 100%;
+    padding: 15px;
+    padding-right: 10px;  /* Espaço à direita para o ícone do olho */
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Estilo do botão de olho (ícone) */
+#toggle-password {
+    position: absolute;
+    right: 10px;  /* Distância à direita */
+    top: 50%;  /* Alinhamento vertical */
+    transform: translateY(-50%);  /* Alinha verticalmente o ícone ao centro do campo de senha */
+    background: none;
+    border: none;
+    color: #000000;
+    font-size: 18px;
+    cursor: pointer;
+}
+
 #senha {
     width: 200px;
     display: flex;
@@ -39,23 +76,107 @@ body {
     margin-bottom: 20px;
     
 }
-#senhaa {
-    width: 200px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    
-}
 #botao {
-    width: 150px;
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 8px;
+    width: 100%;
+    padding: 15px;
+    background-color: #111111;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+#botao:hover {
+    background-color: #e6b800;
 }
 #containerAviso {
-    font-size: 10px;
-    width: 60px;
+    font-size: 15px;
+    width: 100px;
+    padding-top: 25px;
+}
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        padding: 50px;
+        border-radius: 50px;
+        font-family: Arial, sans-serif;
+        background-color: #1f1f1f;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    #texto {
+        font-size: 60px;
+        padding-bottom: 50px;
+        color:#ffffff
+    }
+    #conjunto {
+        background-color: #2e2e2e; 
+        border-radius: 12px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        padding: 150px;
+        width: 100%;
+        max-width: 550px;
+        text-align: center;
+        position: relative;
+    }
+    img{
+        margin-bottom: 30px;
+        width: 300px;
+        height: auto;
+    }
+    #senhaa{
+        width: 100%;
+        padding: 20px;
+        margin-bottom: 30px;
+        border: 1px solid #333;
+        border-radius: 4px;
+        background-color: #333; 
+        color: #fff;
+        font-size: 16px;
+    }
+    #botao{
+        width: 100%;
+        padding: 15px;
+        background-color: #ffffff;
+        color: #1f1f1f;
+        border: none;
+        border-radius: 4px;
+        font-size: 18px;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-weight: bold;
+        transition: background-color 1s ease;
+        outline: none;
+    }
+
+    #botao:active {
+        animation: piscarDourado 0.6s linear;
+    }
+    @keyframes piscarDourado {
+        0% {
+          background-color: #ffffff; /* Cor inicial dourada */
+        }
+        50% {
+          background-color: #e6b800; /* Cor dourada mais escura */
+        }
+        100% {
+          background-color: #ffffff; /* Retorna à cor dourada original */
+        }
+      }
+    #containerAviso {
+        font-size: 15px;
+        width: 100px;
+        padding-top: 15px;
+    }
+    #seehaa:focus, #botao:focus {
+        outline: none;
+        border-color: #ffcc00;
+    }
 }

@@ -22,8 +22,6 @@ const montaBotao = () => {
     const newContent3 = document.createTextNode("Masculino");
     botao3.appendChild(newContent3);
     botao3.id = 'botao3'
-
-
     };
 /*for (let i = 0; i < dados.length; i++){
     let atleta = dados[i]; */
@@ -43,7 +41,7 @@ const montaCard = (atleta) => {
     cartao.dataset.id = atleta.id;
     cartao.dataset.nome = atleta.nome
 
-    link.innerHTML = "Saiba mais...";
+    link.innerHTML = "Saiba mais!";
     link.href =`detalhamento.html?id=${atleta.id}`;
     cartao.appendChild(link);
 
