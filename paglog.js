@@ -73,41 +73,28 @@ function limpaFiltro() {
     containerPrincipal.innerHTML = '';
 }
 
-function mostraCarregando(texto) {
-    mensagemCarregando.textContent = `Carregando ${texto}...`;
-    carregando.style.display = 'block';
+function filtrarJogadoresPesquisa (jogadores, escrita) {
+    return jogadores.filter(jogador => jogador.nome.toLowerCase().includes(escrita.toLowerCase()))
 }
 
-function esconderCarregando() {
-    carregando.style.display = 'none';
-}
 
 function exibeelenco(endpoint) {
     limpaFiltro();
-    mostraCarregando("Jogadores");
+    // mostraCarregando("Jogadores");
     container.innerHTML = '';
 
     pega_json('https://botafogo-atletas.mange.li/2024-1/', endpoint).then((retorno) => {
-        esconderCarregando();
+        // esconderCarregando();
         retorno.forEach((atleta) => montaCard(atleta));
     }).catch(() => {
-        esconderCarregando();
+        // esconderCarregando();
         alert('Erro no carregamento. Tente novamente.');
     });
 }
 
-function filtraJogs(jogadores, pesquisa) {
-    return jogadores.filter(jogador => jogador.nome.toLowerCase().includes(pesquisa.toLowerCase()));
-}
-
-function exibirJogadores(jogadores) {
-    limpaFiltro();
-    jogadores.forEach((atleta) => montaCard(atleta));
-    salvaCards(jogadores);
-}
-
-function salvaCards(jogadores) {
-    sessionStorage.setItem('cardsRenderizados', JSON.stringify(jogadores));
+function exibirJogadores2(jogadores) {
+    limpaFiltro()
+    jogadores.forEach(atleta => montaCard(atleta))
 }
 
 if (sessionStorage.getItem('logado')) {
@@ -130,82 +117,53 @@ if (sessionStorage.getItem('logado')) {
         }
     });
 
-    masculino.addEventListener("click", function() {
-        endpoint = 'masculino';
-        exibeelenco(endpoint);
-    });
+    const barraPesquisa = document.getElementById('pesquisa')
 
-    feminino.addEventListener("click", function() {
-        endpoint = 'feminino';
-        exibeelenco(endpoint);
-    });
+    barraPesquisa.addEventListener('input', function () {
+        const escrita = barraPesquisa.value
 
-    elencoCompleto.addEventListener("click", function() {
-        endpoint = 'all';
-        exibeelenco(endpoint);
-    });
+        fetch('https://botafogo-atletas.mange.li/2024-1/all').then(response => response.json()).then(jogadoress => {
+            const jogadoresFiltrados = filtrarJogadoresPesquisa(jogadoress, escrita)
+            exibirJogadores2(jogadoresFiltrados)
+        })
+    })
 
-    barraPesquisa.addEventListener('input', function() {
-        const pesquisa = barraPesquisa.value;
-        sessionStorage.setItem('barraPesquisa', pesquisa);
-
-        if (pesquisa === "") {
-            fetch('https://botafogo-atletas.mange.li/2024-1/all')
-                .then(response => response.json())
-                .then(jogadores => {
-                    exibirJogadores(jogadores);
-                })
-                .catch(error => {
-                    console.error('Erro ao buscar jogadores:', error);
-                });
-        } else {
-            fetch('https://botafogo-atletas.mange.li/2024-1/all')
-                .then(response => response.json())
-                .then(jogadores => {
-                    const jogadoresFiltrados = filtraJogs(jogadores, pesquisa);
-                    exibirJogadores(jogadoresFiltrados);
-                })
-                .catch(error => {
-                    console.error('Erro ao buscar jogadores:', error);
-                });
-        }
-    });
 
 } else {
     document.body.innerHTML = `<h1>Você precisa estar logado</h1>`;
     window.location = "index.html";
 }
 
-window.onload = function() {
-    const filtroSalvo = sessionStorage.getItem('filtroSelecionado');
-    const pesquisaSalva = sessionStorage.getItem('barraPesquisa');
-    const cardsSalvos = sessionStorage.getItem('cardsRenderizados');
+// window.onload = function() {
+//     const filtroSalvo = sessionStorage.getItem('filtroSelecionado');
+//     const pesquisaSalva = sessionStorage.getItem('barraPesquisa');
+//     const cardsSalvos = sessionStorage.getItem('cardsRenderizados');
 
-    if (cardsSalvos) {
-        const jogadores = JSON.parse(cardsSalvos);
-        exibirJogadores(jogadores);
-    } else {
-        if (filtroSalvo) {
-            filtroMenu.value = filtroSalvo;
-            if (filtroSalvo === 'masculino') {
-                endpoint = 'masculino';
-                exibeelenco(endpoint);
-            } else if (filtroSalvo === 'feminino') {
-                endpoint = 'feminino';
-                exibeelenco(endpoint);
-            } else if (filtroSalvo === 'elencoCompleto') {
-                endpoint = 'all';
-                exibeelenco(endpoint);
-            }
-        }
-        if (pesquisaSalva) {
-            barraPesquisa.value = pesquisaSalva;
-            fetch('https://botafogo-atletas.mange.li/2024-1/all')
-                .then(response => response.json())
-                .then(jogadores => {
-                    const jogadoresFiltrados = filtraJogs(jogadores, pesquisaSalva);
-                    exibirJogadores(jogadoresFiltrados);
-                });
-        }
-    }
-};
+//     if (cardsSalvos) {
+//         const jogadores = JSON.parse(cardsSalvos);
+//         exibirJogadores(jogadores);
+//     } else {
+//         if (filtroSalvo) {
+//             filtroMenu.value = filtroSalvo;
+//             if (filtroSalvo === 'masculino') {
+//                 endpoint = 'masculino';
+//                 exibeelenco(endpoint);
+//             } else if (filtroSalvo === 'feminino') {
+//                 endpoint = 'feminino';
+//                 exibeelenco(endpoint);
+//             } else if (filtroSalvo === 'elencoCompleto') {
+//                 endpoint = 'all';
+//                 exibeelenco(endpoint);
+//             }
+//         }
+//         if (pesquisaSalva) {
+//             barraPesquisa.value = pesquisaSalva;
+//             fetch('https://botafogo-atletas.mange.li/2024-1/all')
+//                 .then(response => response.json())
+//                 .then(jogadores => {
+//                     const jogadoresFiltrados = filtraJogs(jogadores, pesquisaSalva);
+//                     exibirJogadores(jogadoresFiltrados);
+//                 });
+//         }
+//     }
+// };

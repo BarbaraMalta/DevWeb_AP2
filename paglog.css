@@ -11,10 +11,15 @@
     align-items: center;
     border-width: 5px;
     width: 100%;
-    height:250px;
-    padding-top: 30px;
+    height:300px;
     padding-bottom: 30px;
     margin-bottom: 50px;
+}
+#header2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 50px;
 }
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -62,29 +67,80 @@ body {
     text-align: center;
     width: 250px;
     height: 40px;
-
 }
 img {
     height: 500px;
     width: 300px;
     border-radius: 5px;
 }
+img#botafogo {
+    height: 300px;
+    width: 300px;
+}
 #logout {
-    width: 150px;
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 8px;
+    width: 200px;
+    padding: 15px;
+    background-color: #ffffff;
+    color: #1f1f1f;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    outline: none;
+}
+#logout:hover {
+    background-color: #e6b800;
+}
+#pesquisa {
+    width: 200px;
+    padding: 20px;
+    margin-bottom: 30px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background-color: #333; 
+    color: #fff;
+    font-size: 16px;
 }
 #filtroMenu {
-    width: 150px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    margin-top: 20px;
+    width: 200px;
+    padding: 20px;
+    margin-bottom: 30px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background-color: #333; 
+    color: #fff;
+    font-size: 16px;
 }
+.menuSelect {
+    width: 100%;
+    padding: 15px;
+    background-color: #ffffff;
+    color: #1f1f1f;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 1s ease;
+    outline: none;
+}
+.menuSelect:active {
+    animation: piscarDourado 0.6s linear;
+}
+@keyframes piscarDourado {
+    0% {
+      background-color: #ffffff; /* Cor inicial dourada */
+    }
+    50% {
+      background-color: #e6b800; /* Cor dourada mais escura */
+    }
+    100% {
+      background-color: #ffffff; /* Retorna à cor dourada original */
+    }
+  }
 
 @media (max-width: 768px) {
     body {
