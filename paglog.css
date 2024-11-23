@@ -159,7 +159,6 @@ img#botafogo {
         padding-right: 50px;
     }
     #header>img {
-        margin-right: 15px;
         width: 250px;
         height: 250px;
     }
@@ -172,7 +171,6 @@ img#botafogo {
     }
     .menuSelect {
         width: 100%;
-        padding: 15px;
         background-color: #ffffff;
         color: #1f1f1f;
         border: none;
@@ -222,6 +220,7 @@ img#botafogo {
         border-radius: 8px;
         text-align: center;
         padding: 20px;
+        margin: 10px 50px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
@@ -255,7 +254,7 @@ img#botafogo {
     }
     #filtroMenu {
         width: 200px;
-        padding: 20px;
+        padding: 20px 10px;
         margin-bottom: 30px;
         border: 1px solid #333;
         border-radius: 4px;
@@ -316,12 +315,46 @@ img#botafogo {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        margin-bottom: 50px;
+    }
+    #container {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0 30px;
+        gap: 20px;
+        align-items: center;
+        flex-direction: row;
+        justify-content: center;
+    
+    }
+    #container article {
+        background-color: #333;
+        color: white;
+        padding: 15px;
+        border-radius: 10px;
+    }
+    #container a {
+        align-items: center;
+        color: #ffffff;
+        background-color: #474646;
+        display: flex;
+        border-radius: 10px;
+        margin-top: 5px;
+        padding: 5px 0px;
+        text-decoration: none;
+        width: 100%;
+        justify-content: center;
+        margin-top: 15px;
+    }
+    #container h1 {
+        margin-bottom: 15px;
     }
     #top {
         display: flex;
         flex-direction: column;
         align-items: baseline;
-        padding: 20px;
+        padding-top: 20px;
+        padding-right: 20px;
     }
     #top2 {
         display: flex;
@@ -336,24 +369,38 @@ img#botafogo {
     }
     #botoes {
         display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
     }
     #botoess {
         display: flex;
+        justify-content: space-around;
         flex-direction: row;
+        flex-wrap: wrap;
     }
     #barra {
         padding-left: 5px;
     }
+    #pesquisa {
+        width: 160px;
+        padding: 20px 10px;
+        margin-bottom: 30px;
+        border: 1px solid #333;
+        border-radius: 4px;
+        background-color: #333; 
+        color: #fff;
+        font-size: 14px;
+    }
     #botao1 {
         display: flex;
-        width: 200px;
+        width: 160px;
         padding: 20px;
         margin-bottom: 30px;
         border: 1px solid #333;
         border-radius: 4px;
         background-color: #333; 
         color: #fff;
-        font-size: 16px;
+        font-size: 14px;
         margin-right: 5px;
     }
     #botao1:hover {
@@ -361,14 +408,14 @@ img#botafogo {
     }
     #botao2 {
         display: flex;
-        width: 200px;
+        width: 160px;
         padding: 20px;
         margin-bottom: 30px;
         border: 1px solid #333;
         border-radius: 4px;
         background-color: #333; 
         color: #fff;
-        font-size: 16px;
+        font-size: 14px;
         margin-right: 5px;
     }
     #botao2:hover {
@@ -376,14 +423,14 @@ img#botafogo {
     }
     #botao3 {
         display: flex;
-        width: 200px;
+        width: 160px;
         padding: 20px;
         margin-bottom: 30px;
         border: 1px solid #333;
         border-radius: 4px;
         background-color: #333; 
         color: #fff;
-        font-size: 16px;
+        font-size: 14px;
         margin-right: 5px;
     }
     #botao3:hover {
@@ -391,14 +438,14 @@ img#botafogo {
     }
     #botao4 {
         display: flex;
-        width: 200px;
+        width: 160px;
         padding: 20px;
         margin-bottom: 30px;
         border: 1px solid #333;
         border-radius: 4px;
         background-color: #333; 
         color: #fff;
-        font-size: 16px;
+        font-size: 14px;
     }
     #botao4:hover {
         background-color: #e6b800;
@@ -424,6 +471,8 @@ img#botafogo {
         outline: none;
         align-items: center;
         justify-content: center;
+        margin-bottom: 230px;
+
     }
     #logout:hover {
         background-color: #e6b800;
