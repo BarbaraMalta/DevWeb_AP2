@@ -8,6 +8,7 @@ const pega_json = async (caminho, endpoint) => {
 const container = document.getElementById('container');
 const botoes = document.getElementById('botoes');
 
+
 const montaBotao = () => {
     const botao1 = document.createElement("button")
     const newContent1 = document.createTextNode("Elenco Completo");
@@ -74,6 +75,7 @@ const feminino = document.getElementById('botao2');
 const masculino = document.getElementById('botao3');
 const filtroMenu = document.getElementById('filtroMenu');
 const barraPesquisa = document.getElementById('barraPesquisa');
+const limparPesquisa = document.getElementById('botao4');
 
 function limpaFiltro() {
     container.innerHTML = '';
@@ -130,6 +132,25 @@ if (sessionStorage.getItem('logado')) {
             const jogadoresFiltrados = filtrarJogadoresPesquisa(jogadoress, escrita)
             exibirJogadores2(jogadoresFiltrados)
         })
+    })
+
+    masculino.addEventListener("click", function() {
+        endpoint = 'masculino'
+        exibeelenco(endpoint)
+    })
+
+    feminino.addEventListener('click', function() {
+        endpoint = 'feminino'
+        exibeelenco(endpoint)
+    })
+
+    elencoCompleto.addEventListener('click', function() {
+        endpoint = 'all'
+        exibeelenco(endpoint)
+    })
+
+    limparPesquisa.addEventListener('click', function() {
+        limpaFiltro()
     })
 
 } else {
