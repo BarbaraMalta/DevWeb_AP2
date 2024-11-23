@@ -1,3 +1,4 @@
+
 const pega_json = async (caminho, endpoint) => {
     const resposta = await fetch(caminho + endpoint);
     const dados = await resposta.json();
@@ -25,11 +26,16 @@ const montaBotao = () => {
 
     const botao4 = document.createElement("button")
     const newContent4 = document.createTextNode("Limpar Pesquisa")
-    botao4.appendChild(newContent4)
+    botao4.appendChild(newContent4);
     botao4.id = 'botao4'
     botao4.onclick = function() {
         limpaPesquisa()
     }
+
+    botoes.appendChild(botao1)
+    botoes.appendChild(botao2)
+    botoes.appendChild(botao3)
+    botoes.appendChild(botao4)
 };
 /*for (let i = 0; i < dados.length; i++){
     let atleta = dados[i]; */
@@ -67,22 +73,34 @@ const elencoCompleto = document.getElementById('botao1');
 const feminino = document.getElementById('botao2');
 const masculino = document.getElementById('botao3');
 const filtroMenu = document.getElementById('filtroMenu');
+const barraPesquisa = document.getElementById('barraPesquisa');
 
-function exibeelenco(endpoint) {
-    container.innerHTML = ''
-    pega_json('https://botafogo-atletas.mange.li/2024-1/', endpoint).then(
-        (retorno) => {
-            retorno.forEach((atleta) => montaCard(atleta));
-        }
-    )
-    };
-
-function limpaPesquisa(jogadores) {
-    return jogadores.filter(jogador => jogador.nome.toLowerCase());
+function limpaFiltro() {
+    container.innerHTML = '';
 }
 
-function exibirJogadores(jogadores) {
-    jogadores.forEach((atleta) => montaCard(atleta));
+function filtrarJogadoresPesquisa (jogadores, escrita) {
+    return jogadores.filter(jogador => jogador.nome.toLowerCase().includes(escrita.toLowerCase()))
+}
+
+
+function exibeelenco(endpoint) {
+    limpaFiltro();
+    // mostraCarregando("Jogadores");
+    container.innerHTML = '';
+
+    pega_json('https://botafogo-atletas.mange.li/2024-1/', endpoint).then((retorno) => {
+        // esconderCarregando();
+        retorno.forEach((atleta) => montaCard(atleta));
+    }).catch(() => {
+        // esconderCarregando();
+        alert('Erro no carregamento. Tente novamente.');
+    });
+}
+
+function exibirJogadores2(jogadores) {
+    limpaFiltro()
+    jogadores.forEach(atleta => montaCard(atleta))
 }
 
 if (sessionStorage.getItem('logado')) {
@@ -103,57 +121,18 @@ if (sessionStorage.getItem('logado')) {
         }
     });
 
-    
-    masculino.addEventListener("click", function() {
-        endpoint = 'masculino';
-        exibeelenco(endpoint)
-    });
-    
-    feminino.addEventListener("click", function() {
-        endpoint = 'feminino';
-        exibeelenco(endpoint)
-    });
-    
-    elencoCompleto.addEventListener("click", function() {
-        endpoint = 'all';
-        exibeelenco(endpoint)
-    });
+    const barraPesquisa = document.getElementById('pesquisa')
+
+    barraPesquisa.addEventListener('input', function () {
+        const escrita = barraPesquisa.value
+
+        fetch('https://botafogo-atletas.mange.li/2024-1/all').then(response => response.json()).then(jogadoress => {
+            const jogadoresFiltrados = filtrarJogadoresPesquisa(jogadoress, escrita)
+            exibirJogadores2(jogadoresFiltrados)
+        })
+    })
 
 } else {
-    document.body.innerHTML = <h1>Você precisa estar logado</h1>
+    document.body.innerHTML = `<h1>Você precisa estar logado</h1>`
     window.location = "index.html"
 }
-
-window.onload = function() {
-    const filtroSalvo = sessionStorage.getItem('filtroSelecionado');
-
-    if (filtroSalvo) {
-        filtroMenu.value = filtroSalvo;
-        if (filtroSalvo === 'masculino') {
-            endpoint = 'masculino';
-            exibeelenco(endpoint, 'masculino');
-        } else if (filtroSalvo === 'feminino') {
-            endpoint = 'feminino';
-            exibeelenco(endpoint, 'feminino');
-        } else if (filtroSalvo === 'elencoCompleto') {
-            endpoint = 'all';
-            exibeelenco(endpoint, 'elenco completo');
-        }
-    }
-};
-
-filtroMenu.addEventListener('change', function() {
-    const valorSelecionado = filtroMenu.value;
-    sessionStorage.setItem('filtroSelecionado', valorSelecionado);
-
-    if (valorSelecionado === 'masculino') {
-        endpoint = 'masculino';
-        exibeelenco(endpoint, 'masculino');
-    } else if (valorSelecionado === 'feminino') {
-        endpoint = 'feminino';
-        exibeelenco(endpoint, 'feminino');
-    } else if (valorSelecionado === 'elencoCompleto') {
-        endpoint = 'all';
-        exibeelenco(endpoint, 'elenco completo');
-    }
-})

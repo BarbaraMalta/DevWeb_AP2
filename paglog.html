@@ -10,10 +10,12 @@
 </head>
 <body>
     <div id="header">
-        <img src="botafogo.png">
-
-        <div id="header2">
+        <div id="top">
             <h1> Elenco do Botafogo</h1>
+            <button id="logout">Sair</button>
+        </div>
+        <div id="header2">
+            <img id="botafogo" src="botafogo.png">
             <div class="menu-select">
                 <select id="filtroMenu">
                     <option value="">Filtrar por:</option>
@@ -21,14 +23,15 @@
                     <option value="feminino">Feminino</option>
                     <option value="masculino">Masculino</option>
                 </select>
-                <div id="barra">
-                    <input type="text" id="pesquisa" placeholder="Pesquisar">
+                <div id="top2">
+                    <div id="botoes"></div>
+                    <div id="barra">
+                        <input type="text" id="pesquisa" placeholder="Pesquisar">
+                    </div>
                 </div>
             </div>
-            <button id="logout">Sair</button>
         </div>
     </div>
-    <div id="botoes"></div>
     <div id="container"></div>
 </body>
 </html>
