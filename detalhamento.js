@@ -73,5 +73,5 @@ if (sessionStorage.getItem('logado')) {
     )
     
 } else {
-    document.body.innerHTML = `<h1>Você precisa estar logado para acessar essas informações</h1>`
+    document.body.innerHTML = `<h2>Você precisa estar logado ter acesso a essas informações!</h2>`
 }

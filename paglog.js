@@ -1,3 +1,12 @@
+function mostrarCarregando() {
+    const mensagemCarregando = document.getElementById('espera');
+    mensagemCarregando.style.display = 'block';
+}
+
+function ocultarCarregando() {
+    const mensagemCarregando = document.getElementById('espera');
+    mensagemCarregando.style.display = 'none';
+}
 
 const pega_json = async (caminho, endpoint) => {
     const resposta = await fetch(caminho + endpoint);
@@ -30,7 +39,7 @@ const montaBotao = () => {
     botao4.appendChild(newContent4);
     botao4.id = 'botao4'
     botao4.onclick = function() {
-        limpaPesquisa()
+        limparPesquisa()
     }
 
     botoes.appendChild(botao1)
@@ -79,6 +88,7 @@ const limparPesquisa = document.getElementById('botao4');
 
 function limpaFiltro() {
     container.innerHTML = '';
+    mostrarCarregando();
 }
 
 function filtrarJogadoresPesquisa (jogadores, escrita) {
@@ -88,20 +98,21 @@ function filtrarJogadoresPesquisa (jogadores, escrita) {
 
 function exibeelenco(endpoint) {
     limpaFiltro();
-    // mostraCarregando("Jogadores");
+    mostrarCarregando();
     container.innerHTML = '';
 
     pega_json('https://botafogo-atletas.mange.li/2024-1/', endpoint).then((retorno) => {
-        // esconderCarregando();
+        ocultarCarregando();
         retorno.forEach((atleta) => montaCard(atleta));
     }).catch(() => {
-        // esconderCarregando();
+        ocultarCarregando();
         alert('Erro no carregamento. Tente novamente.');
     });
 }
 
 function exibirJogadores2(jogadores) {
     limpaFiltro()
+    ocultarCarregando()
     jogadores.forEach(atleta => montaCard(atleta))
 }
 
@@ -151,6 +162,7 @@ if (sessionStorage.getItem('logado')) {
 
     limparPesquisa.addEventListener('click', function() {
         limpaFiltro()
+        ocultarCarregando()
     })
 
 } else {

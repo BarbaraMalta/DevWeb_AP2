@@ -24,6 +24,7 @@ body {
     flex-direction: column;
     height: 100vh;
     margin: 0;
+    align-items: center;
 
 }
 #container {
@@ -168,6 +169,8 @@ img#botafogo {
         justify-content: center;
         align-items: center;
         gap: 20px;
+        font-family: Bebas Neue;
+        letter-spacing: 2px;
     }
     .menuSelect {
         width: 100%;
@@ -209,6 +212,9 @@ img#botafogo {
         grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
         gap: 20px;
         padding: 20px;
+        grid-template-columns: 1fr;
+        max-width: 100%;
+        box-sizing: border-box;
     }
     #container article {
         display: flex;
@@ -226,17 +232,19 @@ img#botafogo {
     }
     #logout {
         width: 200px;
-        padding: 15px;
+        padding: 10px;
         background-color: #ffffff;
         color: #1f1f1f;
         border: none;
         border-radius: 4px;
-        font-size: 18px;
+        font-size: 25px;
         cursor: pointer;
         text-transform: uppercase;
         font-weight: bold;
         transition: background-color 1s ease;
         outline: none;
+        font-family: Bebas Neue;
+        letter-spacing: 2px;
     }
     #logout:active {
         animation: piscarDourado 0.6s linear;
@@ -261,6 +269,7 @@ img#botafogo {
         background-color: #333; 
         color: #fff;
         font-size: 16px;
+        font-family: Montserrat;
     }
     #container a {
         margin-top: 20px;
@@ -270,12 +279,14 @@ img#botafogo {
         color: #1f1f1f;
         border: none;
         border-radius: 4px;
-        font-size: 18px;
+        font-size: 25px;
         cursor: pointer;
         text-transform: uppercase;
         font-weight: bold;
         transition: background-color 1s ease;
         outline: none;
+        font-family: Bebas Neue;
+        letter-spacing: 2px;
     }
     #container a:active {
         animation: piscarDourado 0.6s linear;
@@ -292,12 +303,15 @@ img#botafogo {
         }
     }
     #container h1 {
-        font-size: 18px;
+        font-size: 25px;
         text-align: center;
-        width: 100%;
         height: 40px;
         margin-bottom: 10px;
         margin-top: 10px;
+        font-family: Bebas Neue;
+        letter-spacing: 2px;
+        width: 300px;
+        padding: 30px;
     }
     #pesquisa {
         width: 180px;
@@ -308,30 +322,53 @@ img#botafogo {
         background-color: #333; 
         color: #fff;
         font-size: 16px;
+        font-family: Montserrat;
+    }
+    #espera {
+        animation: 3s ease-out 0s infinite normal none running blink; 
+        display: flex; 
+        margin: auto; 
+        width: min-content;
+        color: rgb(255, 255, 255);
+        background-color: #333;
+        border-radius: 10px;
+        padding: 20px;
+        font-family: Bebas Neue;
+        letter-spacing: 2px;
     }
 }
-@media (min-width: 769px) {
+@media (min-width: 769px) and (max-width: 1024px) {
     #header {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         margin-bottom: 50px;
+        font-family: Bebas Neue;
+        letter-spacing: 3px;
     }
     #container {
-        display: flex;
+        display: grid;
         flex-wrap: wrap;
         padding: 0 30px;
-        gap: 20px;
+        gap: 10px;
         align-items: center;
         flex-direction: row;
         justify-content: center;
-    
+        grid-template-columns: repeat(3, 1fr);
+        box-sizing: border-box;
+        margin: 0 20px;
     }
     #container article {
+        width: 200px;
         background-color: #333;
         color: white;
         padding: 15px;
         border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    }
+    #container article:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
     }
     #container a {
         align-items: center;
@@ -345,9 +382,23 @@ img#botafogo {
         width: 100%;
         justify-content: center;
         margin-top: 15px;
+        font-family: Bebas Neue;
+        letter-spacing: 2px;
+        font-size: 20px;
+    }
+    #container article a:hover {
+        background-color: #e6b800; /* Muda o fundo para escuro quando passa o mouse */
     }
     #container h1 {
-        margin-bottom: 15px;
+        padding: 40px;
+        font-family: Bebas Neue;
+        letter-spacing: 2px;
+        font-size: 18px;
+        width: 150px;
+    }
+    #container img {
+        width: 190px;
+        height: 310px;
     }
     #top {
         display: flex;
@@ -382,7 +433,8 @@ img#botafogo {
         padding-left: 5px;
     }
     #pesquisa {
-        width: 160px;
+        font-family: Montserrat;
+        width: 180px;
         padding: 20px 10px;
         margin-bottom: 30px;
         border: 1px solid #333;
@@ -393,7 +445,7 @@ img#botafogo {
     }
     #botao1 {
         display: flex;
-        width: 160px;
+        width: 180px;
         padding: 20px;
         margin-bottom: 30px;
         border: 1px solid #333;
@@ -402,13 +454,14 @@ img#botafogo {
         color: #fff;
         font-size: 14px;
         margin-right: 5px;
+        font-family: Montserrat;
     }
     #botao1:hover {
         background-color: #e6b800;
     }
     #botao2 {
         display: flex;
-        width: 160px;
+        width: 180px;
         padding: 20px;
         margin-bottom: 30px;
         border: 1px solid #333;
@@ -417,13 +470,14 @@ img#botafogo {
         color: #fff;
         font-size: 14px;
         margin-right: 5px;
+        font-family: Montserrat;
     }
     #botao2:hover {
         background-color: #e6b800;
     }
     #botao3 {
         display: flex;
-        width: 160px;
+        width: 180px;
         padding: 20px;
         margin-bottom: 30px;
         border: 1px solid #333;
@@ -432,13 +486,14 @@ img#botafogo {
         color: #fff;
         font-size: 14px;
         margin-right: 5px;
+        font-family: Montserrat;
     }
     #botao3:hover {
         background-color: #e6b800;
     }
     #botao4 {
         display: flex;
-        width: 160px;
+        width: 180px;
         padding: 20px;
         margin-bottom: 30px;
         border: 1px solid #333;
@@ -446,6 +501,7 @@ img#botafogo {
         background-color: #333; 
         color: #fff;
         font-size: 14px;
+        font-family: Montserrat;
     }
     #botao4:hover {
         background-color: #e6b800;
@@ -472,9 +528,442 @@ img#botafogo {
         align-items: center;
         justify-content: center;
         margin-bottom: 230px;
-
+        font-family: Bebas Neue;
+        letter-spacing: 2px;
     }
     #logout:hover {
         background-color: #e6b800;
+    }
+    #espera {
+        animation: 1s ease-out 0s infinite normal none running blink; 
+        display: flex; 
+        margin: auto; 
+        width: min-content;
+        color: rgb(255, 255, 255);
+        background-color: #333;
+        border-radius: 10px;
+        padding: 20px;
+        font-family: Bebas Neue;
+        letter-spacing: 2px;
+    }
+}
+@media (min-width: 1025px) and (max-width: 1300px) {
+    #header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 50px;
+        font-family: Bebas Neue;
+        letter-spacing: 3px;
+    }
+    #container {
+        display: grid;
+        flex-wrap: wrap;
+        padding: 0 30px;
+        gap: 10px;
+        align-items: center;
+        flex-direction: row;
+        justify-content: center;
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 100%;
+        box-sizing: border-box;
+        margin: 0 20px;
+    }
+    #container article {
+        width: 200px;
+        background-color: #333;
+        color: white;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    }
+    #container article:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
+    }
+    #container a {
+        align-items: center;
+        color: #ffffff;
+        background-color: #474646;
+        display: flex;
+        border-radius: 10px;
+        margin-top: 5px;
+        padding: 5px 0px;
+        text-decoration: none;
+        width: 100%;
+        justify-content: center;
+        margin-top: 15px;
+        font-family: Bebas Neue;
+        letter-spacing: 2px;
+        font-size: 20px;
+    }
+    #container article a:hover {
+        background-color: #e6b800; /* Muda o fundo para escuro quando passa o mouse */
+    }
+    #container h1 {
+        padding: 40px;
+        font-family: Bebas Neue;
+        letter-spacing: 2px;
+        font-size: 18px;
+        width: 150px;
+    }
+    #container img {
+        width: 190px;
+        height: 310px;
+    }
+    #top {
+        display: flex;
+        flex-direction: column;
+        align-items: baseline;
+        padding-top: 20px;
+        padding-right: 20px;
+    }
+    #top2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+    }
+    img#botafogo {
+        height: 200px;
+        width: 200px;
+    }
+    #botoes {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    #botoess {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    #barra {
+        padding-left: 5px;
+    }
+    #pesquisa {
+        font-family: Montserrat;
+        width: 180px;
+        padding: 20px 10px;
+        margin-bottom: 30px;
+        border: 1px solid #333;
+        border-radius: 4px;
+        background-color: #333; 
+        color: #fff;
+        font-size: 14px;
+    }
+    #botao1 {
+        display: flex;
+        width: 180px;
+        padding: 20px;
+        margin-bottom: 30px;
+        border: 1px solid #333;
+        border-radius: 4px;
+        background-color: #333; 
+        color: #fff;
+        font-size: 14px;
+        margin-right: 5px;
+        font-family: Montserrat;
+    }
+    #botao1:hover {
+        background-color: #e6b800;
+    }
+    #botao2 {
+        display: flex;
+        width: 180px;
+        padding: 20px;
+        margin-bottom: 30px;
+        border: 1px solid #333;
+        border-radius: 4px;
+        background-color: #333; 
+        color: #fff;
+        font-size: 14px;
+        margin-right: 5px;
+        font-family: Montserrat;
+    }
+    #botao2:hover {
+        background-color: #e6b800;
+    }
+    #botao3 {
+        display: flex;
+        width: 180px;
+        padding: 20px;
+        margin-bottom: 30px;
+        border: 1px solid #333;
+        border-radius: 4px;
+        background-color: #333; 
+        color: #fff;
+        font-size: 14px;
+        margin-right: 5px;
+        font-family: Montserrat;
+    }
+    #botao3:hover {
+        background-color: #e6b800;
+    }
+    #botao4 {
+        display: flex;
+        width: 180px;
+        padding: 20px;
+        margin-bottom: 30px;
+        border: 1px solid #333;
+        border-radius: 4px;
+        background-color: #333; 
+        color: #fff;
+        font-size: 14px;
+        font-family: Montserrat;
+    }
+    #botao4:hover {
+        background-color: #e6b800;
+    }
+    #filtroMenu {
+        display: none;
+    }
+    .menu-select {
+        display: none;
+    }
+    #logout {
+        width: 80px;
+        height: 35px;
+        padding: 0;
+        background-color: #ffffff;
+        color: #1f1f1f;
+        border: none;
+        border-radius: 4px;
+        font-size: 18px;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-weight: bold;
+        outline: none;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 230px;
+        font-family: Bebas Neue;
+        letter-spacing: 2px;
+    }
+    #logout:hover {
+        background-color: #e6b800;
+    }
+    #espera {
+        animation: 1s ease-out 0s infinite normal none running blink; 
+        display: flex; 
+        margin: auto; 
+        width: min-content;
+        color: rgb(255, 255, 255);
+        background-color: #333;
+        border-radius: 10px;
+        padding: 20px;
+        font-family: Bebas Neue;
+        letter-spacing: 2px;
+    }
+}
+@media (min-width: 1301px) {
+    #header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 50px;
+        font-family: Bebas Neue;
+        letter-spacing: 3px;
+    }
+    #container {
+        display: grid;
+        flex-wrap: wrap;
+        align-items: center;
+        flex-direction: row;
+        justify-content: center;
+        grid-template-columns: repeat(5, 1fr);
+        max-width: 100%;
+        box-sizing: border-box;
+        margin: 0 20px;
+    }
+    #container article {
+        width: 200px;
+        background-color: #333;
+        color: white;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    }
+    #container article:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
+    }
+    #container a {
+        align-items: center;
+        color: #ffffff;
+        background-color: #474646;
+        display: flex;
+        border-radius: 10px;
+        margin-top: 5px;
+        padding: 5px 0px;
+        text-decoration: none;
+        width: 100%;
+        justify-content: center;
+        margin-top: 15px;
+        font-family: Bebas Neue;
+        letter-spacing: 2px;
+        font-size: 20px;
+    }
+    #container article a:hover {
+        background-color: #e6b800; /* Muda o fundo para escuro quando passa o mouse */
+    }
+    #container h1 {
+        padding: 40px;
+        font-family: Bebas Neue;
+        letter-spacing: 2px;
+        font-size: 18px;
+        width: 150px;
+    }
+    #container img {
+        width: 190px;
+        height: 310px;
+    }
+    #top {
+        display: flex;
+        flex-direction: column;
+        align-items: baseline;
+        padding-top: 20px;
+        padding-right: 20px;
+    }
+    #top2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+    }
+    img#botafogo {
+        height: 200px;
+        width: 200px;
+    }
+    #botoes {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    #botoess {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    #barra {
+        padding-left: 5px;
+    }
+    #pesquisa {
+        font-family: Montserrat;
+        width: 180px;
+        padding: 20px 10px;
+        margin-bottom: 30px;
+        border: 1px solid #333;
+        border-radius: 4px;
+        background-color: #333; 
+        color: #fff;
+        font-size: 14px;
+    }
+    #botao1 {
+        display: flex;
+        width: 180px;
+        padding: 20px;
+        margin-bottom: 30px;
+        border: 1px solid #333;
+        border-radius: 4px;
+        background-color: #333; 
+        color: #fff;
+        font-size: 14px;
+        margin-right: 5px;
+        font-family: Montserrat;
+    }
+    #botao1:hover {
+        background-color: #e6b800;
+    }
+    #botao2 {
+        display: flex;
+        width: 180px;
+        padding: 20px;
+        margin-bottom: 30px;
+        border: 1px solid #333;
+        border-radius: 4px;
+        background-color: #333; 
+        color: #fff;
+        font-size: 14px;
+        margin-right: 5px;
+        font-family: Montserrat;
+    }
+    #botao2:hover {
+        background-color: #e6b800;
+    }
+    #botao3 {
+        display: flex;
+        width: 180px;
+        padding: 20px;
+        margin-bottom: 30px;
+        border: 1px solid #333;
+        border-radius: 4px;
+        background-color: #333; 
+        color: #fff;
+        font-size: 14px;
+        margin-right: 5px;
+        font-family: Montserrat;
+    }
+    #botao3:hover {
+        background-color: #e6b800;
+    }
+    #botao4 {
+        display: flex;
+        width: 180px;
+        padding: 20px;
+        margin-bottom: 30px;
+        border: 1px solid #333;
+        border-radius: 4px;
+        background-color: #333; 
+        color: #fff;
+        font-size: 14px;
+        font-family: Montserrat;
+    }
+    #botao4:hover {
+        background-color: #e6b800;
+    }
+    #filtroMenu {
+        display: none;
+    }
+    .menu-select {
+        display: none;
+    }
+    #logout {
+        width: 80px;
+        height: 35px;
+        padding: 0;
+        background-color: #ffffff;
+        color: #1f1f1f;
+        border: none;
+        border-radius: 4px;
+        font-size: 18px;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-weight: bold;
+        outline: none;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 230px;
+        font-family: Bebas Neue;
+        letter-spacing: 2px;
+    }
+    #logout:hover {
+        background-color: #e6b800;
+    }
+    #espera {
+        animation: 1s ease-out 0s infinite normal none running blink; 
+        display: flex; 
+        margin: auto; 
+        width: min-content;
+        color: rgb(255, 255, 255);
+        background-color: #333;
+        border-radius: 10px;
+        padding: 20px;
+        font-family: Bebas Neue;
+        letter-spacing: 2px;
     }
 }

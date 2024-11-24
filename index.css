@@ -114,7 +114,9 @@ img {
     #texto {
         font-size: 60px;
         padding-bottom: 50px;
-        color:#ffffff
+        color:#ffffff;
+        font-family: Bebas Neue sans-serif;
+        letter-spacing: 2px;
     }
     #conjunto {
         background-color: #2e2e2e; 
@@ -140,6 +142,7 @@ img {
         background-color: #333; 
         color: #fff;
         font-size: 16px;
+        font-family: Montserrat sans-serif;
     }
     #botao{
         width: 100%;
@@ -154,6 +157,8 @@ img {
         font-weight: bold;
         transition: background-color 1s ease;
         outline: none;
+        font-family: Bebas Neue sans-serif;
+        letter-spacing: 1px;
     }
 
     #botao:active {
@@ -174,6 +179,7 @@ img {
         font-size: 15px;
         width: 100px;
         padding-top: 15px;
+        font-family: Montserrat;
     }
     #seehaa:focus, #botao:focus {
         outline: none;
