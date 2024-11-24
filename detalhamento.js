@@ -5,15 +5,15 @@ const ids = params.get("id")
 console.log(ids)
 
 const pega_json = async (caminho) => {
-    const resposta = await fetch(caminho + ids);
-    const dados = await resposta.json();
-    return dados;
+    try {
+        const resposta = await fetch(caminho + ids);
+        const dados = await resposta.json();
+        return dados;
+    } catch (error) {
+        alert("Erro ao carregar os dados!")
+    }
 }
 const container = document.getElementById("container");
-
-
-/*for (let i = 0; i < dados.length; i++){
-    let atleta = dados[i]; */
 
 const montaCard = (atleta) => {
     const cartao = document.createElement("article");

@@ -15,4 +15,3 @@ const login = () => {
     
     }
 }
-//document.getElementById('logout').onclick = () => {sessionStorage.removeItem('logado'); alert('deslogado')}

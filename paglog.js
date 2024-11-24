@@ -9,9 +9,13 @@ function ocultarCarregando() {
 }
 
 const pega_json = async (caminho, endpoint) => {
-    const resposta = await fetch(caminho + endpoint);
-    const dados = await resposta.json();
-    return dados;
+    try {
+        const resposta = await fetch(caminho + endpoint);
+        const dados = await resposta.json();
+        return dados;
+    } catch (error) {
+        alert("Erro ao carregar os dados!")
+    }
 }
 
 const container = document.getElementById('container');
@@ -47,8 +51,6 @@ const montaBotao = () => {
     botoes.appendChild(botao3)
     botoes.appendChild(botao4)
 };
-/*for (let i = 0; i < dados.length; i++){
-    let atleta = dados[i]; */
 
 const montaCard = (atleta) => {
     const cartao = document.createElement("article");
