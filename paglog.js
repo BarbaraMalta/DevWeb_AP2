@@ -166,6 +166,5 @@ if (sessionStorage.getItem('logado')) {
     })
 
 } else {
-    document.body.innerHTML = `<h1>Você precisa estar logado</h1>`
-    window.location = "index.html"
+    document.body.innerHTML = `<h3>Você precisa estar logado!</h3>`
 }
