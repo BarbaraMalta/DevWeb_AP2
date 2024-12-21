@@ -113,7 +113,7 @@ img {
     }
     #texto {
         font-size: 60px;
-        padding-bottom: 50px;
+        padding-bottom: 20px;
         color:#ffffff;
         font-family: Bebas Neue sans-serif;
         letter-spacing: 2px;
@@ -122,15 +122,14 @@ img {
         background-color: #2e2e2e; 
         border-radius: 12px;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-        padding: 150px;
+        padding: 38px;
         width: 100%;
         max-width: 550px;
         text-align: center;
         position: relative;
     }
     img{
-        margin-bottom: 30px;
-        width: 300px;
+        width: 200px;
         height: auto;
     }
     #senhaa{

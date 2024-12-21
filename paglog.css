@@ -345,6 +345,7 @@ img#botafogo {
         margin-bottom: 50px;
         font-family: Bebas Neue;
         letter-spacing: 3px;
+        background-color: #2a2929;
     }
     #container {
         display: grid;
@@ -413,6 +414,9 @@ img#botafogo {
         justify-content: space-between;
         align-items: center;
         gap: 20px;
+    }
+    #top2 h1 {
+        margin-top: 20px;
     }
     img#botafogo {
         height: 200px;
@@ -568,6 +572,7 @@ img#botafogo {
         margin-bottom: 50px;
         font-family: Bebas Neue;
         letter-spacing: 3px;
+        background-color: #2a2929;
     }
     #container {
         display: grid;
@@ -637,6 +642,9 @@ img#botafogo {
         justify-content: space-between;
         align-items: center;
         gap: 20px;
+    }
+    #top2 h1 {
+        margin-top: 20px;
     }
     img#botafogo {
         height: 200px;
